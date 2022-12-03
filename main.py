@@ -44,9 +44,8 @@ print(Tdnf_sheffer)
 splitTdnf = tcheck.Split_Tdnf(Tdnf)  # Присваиваем
 splitTknf = tcheck.Split_Tknf(Tknf)  # Присваиваем
 
-table1 = tcheck.check_Tablе_tdnf(my_var_save, splitTdnf) # Запоминаем первую таблицу СДНФ
-table2 = tcheck.check_Tablе_tknf(my_var_save, splitTknf) # Запоминаем вторую таблицу СКНФ
-
+table1 = tcheck.check_Tablе_tdnf(my_var_save, splitTdnf)  # Запоминаем первую таблицу СДНФ
+table2 = tcheck.check_Tablе_tknf(my_var_save, splitTknf)  # Запоминаем вторую таблицу СКНФ
 
 print(table1)
 print(table2)
@@ -56,7 +55,6 @@ chkSheffer = tcheck.check_Tablе_Sheffer(my_var_save, Tdnf_sheffer, table1)
 
 print(chkPirs)
 print(chkSheffer)
-
 
 Quine = mini.Kvaina_DNF(Fsdnf)
 while 1:
@@ -72,8 +70,6 @@ Quine = mini.format_DNF(Quine)
 split_check = tcheck.Split_Tdnf(Quine)
 print(tcheck.check_Tablе_tdnf(my_var_save, split_check))
 
-
-
 Quine_KNF = mini.Kvaina_KNF(Fsknf)
 while 1:
     temp = mini.Kvaina_KNF(Quine_KNF)
@@ -88,6 +84,8 @@ Quine_KNF = mini.format_KNF(Quine_KNF)
 split_check_knf = tcheck.Split_Tknf(Quine_KNF)
 print(tcheck.check_Tablе_tknf(my_var_save, split_check_knf))
 
+print('\n', Fsdnf, '\n')
+print(Fsknf)
 
 print("\n", func_list_DNF)
 print("\n", func_list_KNF)
@@ -95,3 +93,16 @@ QuMcDNF = mini.Quine_McCluskey(func_list_DNF, 'DNF', my_var)
 QuMcKNF = mini.Quine_McCluskey(func_list_KNF, 'KNF', my_var)
 print("\n", QuMcDNF)
 print("\n", QuMcKNF)
+
+
+QuineMC_DNF = mini.format_DNF(QuMcDNF)
+QuineMC_DNF = bases.format_spaces_DNF(QuineMC_DNF)
+print(QuineMC_DNF)
+split_check = tcheck.Split_Tdnf(QuineMC_DNF)
+print(tcheck.check_Tablе_tdnf(my_var_save, split_check))
+
+QuineMC_KNF = mini.format_KNF(QuMcKNF)
+QuineMC_KNF = bases.format_spaces_KNF(QuineMC_KNF)
+print(QuineMC_KNF)
+split_check = tcheck.Split_Tknf(QuineMC_KNF)
+print(tcheck.check_Tablе_tknf(my_var_save, split_check))

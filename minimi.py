@@ -3,6 +3,7 @@
 import itertools
 from thefuzz import fuzz as f
 
+
 def Kvaina_DNF(Fsdnf):
     for i in range(len(Fsdnf)):
         Fsdnf[i] = Fsdnf[i].replace(' ', '')
@@ -36,8 +37,6 @@ def Kvaina_DNF(Fsdnf):
                             term_list.append(temp)
                             final_list.append(terms)
                             break
-
-
 
     final_list.sort()
 
@@ -85,7 +84,6 @@ def Kvaina_KNF(Fsknf):
                             term_list.append(temp)
                             final_list.append(terms)
                             break
-
 
     final_list.sort()
 
@@ -321,11 +319,6 @@ def Quine_McCluskey(function, ftype, my_var):
         else:
             K14.append(cube1[i])
 
-    print(K11)
-    # print(K12)
-    # print(K13)
-    # print(K14)
-
     final = []
     test = []
 
@@ -389,7 +382,6 @@ def Quine_McCluskey(function, ftype, my_var):
         if test.count(test[i]) > 1:
             final.append(test[i])
 
-
     final.sort()
 
     final = list(final for final, _ in itertools.groupby(final))
@@ -408,7 +400,10 @@ def Quine_McCluskey(function, ftype, my_var):
                 term = term + 'n' + my_var.columns[j]
             else:
                 continue
-            term = term + ' ^ '
+            if ftype == 'DNF':
+                term = term + ' ^ '
+            else:
+                term = term + ' v '
         term = term[:-3]
         ret_final.append(term)
         term = ''

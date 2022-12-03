@@ -22,3 +22,26 @@ def Sheffer(Tdnf):
             Tdnf[i] = '(' + x_save + " / " + x_save + ')'  # —обрали строчку
     Tdnf = ''.join(Tdnf)  # преобразовали в строку
     return Tdnf  # вернули
+
+
+def format_spaces_DNF(Tdnf):
+    Tdnf = list(Tdnf)
+    new_Tdnf = []
+    for i in range(len(Tdnf)):
+        if Tdnf[i] == '^':
+            new_Tdnf.append(" ^ ")
+        else:
+            new_Tdnf.append(Tdnf[i])
+    new_Tdnf = ''.join(new_Tdnf)
+    return new_Tdnf
+
+def format_spaces_KNF(Tknf):
+    Tknf = list(Tknf)
+    new_Tknf = []
+    for i in range(len(Tknf)):
+        if Tknf[i] == 'v':
+            new_Tknf.append(" v ")
+        else:
+            new_Tknf.append(Tknf[i])
+    new_Tdnf = ''.join(new_Tknf)
+    return new_Tdnf
