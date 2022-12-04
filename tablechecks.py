@@ -2,7 +2,6 @@
 
 
 def Split_Tdnf(Tdnf):
-    print(Tdnf)
     tdnf_check = []  # создали список
     for i in range(Tdnf.count("v") + 1):  # Смотрим, сколько знаков и прибавляем 1 к значению
         if (Tdnf.find('v') != -1):  # если нашли знак
