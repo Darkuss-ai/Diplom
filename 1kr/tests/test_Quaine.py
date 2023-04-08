@@ -46,7 +46,6 @@ class QuaineTest(unittest.TestCase):
                 curr_b = list(test_table['b'])
                 with self.subTest(i=i, j=j):
                     self.assertEqual(test_b, curr_b)
-                    print('\n', test_b, '\n', curr_b, '\n\n')
 
     def test_tables_KNF(self):
 
@@ -71,4 +70,3 @@ class QuaineTest(unittest.TestCase):
                 curr_b = list(test_table['b'])
                 with self.subTest(i=i, j=j):
                     self.assertEqual(test_b, curr_b)
-                    print('\n', test_b, '\n', curr_b, '\n\n')

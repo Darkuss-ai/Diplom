@@ -35,6 +35,7 @@ def format_spaces_DNF(Tdnf):
     new_Tdnf = ''.join(new_Tdnf)
     return new_Tdnf
 
+
 def format_spaces_KNF(Tknf):
     Tknf = list(Tknf)
     new_Tknf = []

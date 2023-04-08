@@ -1,5 +1,4 @@
 # -*- coding: windows-1251 -*-
-
 import itertools
 from thefuzz import fuzz as f
 

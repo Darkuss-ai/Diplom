@@ -91,8 +91,6 @@ def convert(A):
             A = list(A[3:])
             A[0] = '1'
 
-        bit_depth = 8
-
         while len(A) != bit_depth:
             A.insert(0, "0")
 
@@ -110,11 +108,11 @@ def convert(A):
     return A
 
 
-def summator(num1, num2):
+def summator(num1, num2, bits=bit_depth-1):
     A = num1
     B = num2
-    if (num1 + num2 >= 127) or (num1 + num2 < -127):
-        return ("ÏÅĞÅÏÎËÍÅÍÈÅ")
+    if (num1 + num2 >= (2**bits)-1) or (num1 + num2 < -(2**bits)+1):
+        return ("OVERFLOW")
     A_is_minus = False
     B_is_minus = False
     if A < 0:
@@ -132,7 +130,6 @@ def summator(num1, num2):
         B = list(B[2:])
     else:
         B = list(B[3:])
-    bit_depth = 8
     while len(A) != bit_depth:
         A.insert(0, "0")
     while len(B) != bit_depth:
@@ -176,14 +173,14 @@ def shift(A, code, shft):
             if code == 'str':
                 for i in range(shft):
                     if A[1] == '1':
-                        A = "ÏÅĞÅÏÎËÍÅÍÈÅ"
+                        A = "OVERFLOW"
                         return A
                     A[1:-1] = A[2:]
                     A[-1] = '0'
             else:
                 for i in range(shft):
                     if A[1] == '0':
-                        A = 'ÏÅĞÅÏÎËÍÅÍÈÅ'
+                        A = 'OVERFLOW'
                         return A
                     A[1:-1] = A[2:]
                     A[-1] = '1'
@@ -191,7 +188,7 @@ def shift(A, code, shft):
         else:
             for i in range(shft):
                 if A[1] == '1':
-                    A = "ÏÅĞÅÏÎËÍÅÍÈÅ"
+                    A = "OVERFLOW"
                     return A
                 A[1:-1] = A[2:]
                 A[-1] = "0"
