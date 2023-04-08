@@ -44,5 +44,5 @@ from load_to_json import load_to_json, clear_json
 
 file = load_to_json("kr2_json.json") # Insert into json file our results
 print(file) # Print our Json
-file = clear_json("kr2_json.json") # Clear json, deleting results (except values for A and B)
+#file = clear_json("kr2_json.json") # Clear json, deleting results (except values for A and B)
 

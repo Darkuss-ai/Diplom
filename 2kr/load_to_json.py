@@ -101,8 +101,8 @@ def load_to_json(file):
     templates["-A-B"][0]["dop"] = dop(minA_minB)
     templates["-A-B"][0]["int"] = minA_minB
 
-    # with open(file, 'w') as output:
-    #     json.dump(templates, output)
+    with open(file, 'w') as output:
+        json.dump(templates, output)
     return templates
 
 
