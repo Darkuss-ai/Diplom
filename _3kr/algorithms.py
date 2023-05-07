@@ -165,7 +165,7 @@ def summator(num1, num2, bits=bit_depth-1):
         return int('-0b' + ''.join(Fullreverse(C)), base=2)
 
 
-def shift(A, code, shft):
+def shift(A, code, shft, ignore=False):
     flag = True if A[0] == '1' else False
 
     if shft < 0:
@@ -188,14 +188,14 @@ def shift(A, code, shft):
         if flag:
             if code == 'str':
                 for i in range(shft):
-                    if A[1] == '1':
+                    if A[1] == '1' and not ignore:
                         A = "OVERFLOW"
                         return A
                     A[1:-1] = A[2:]
                     A[-1] = '0'
             else:
                 for i in range(shft):
-                    if A[1] == '0':
+                    if A[1] == '0' and not ignore:
                         A = 'OVERFLOW'
                         return A
                     A[1:-1] = A[2:]
@@ -203,7 +203,7 @@ def shift(A, code, shft):
 
         else:
             for i in range(shft):
-                if A[1] == '1':
+                if A[1] == '1' and not ignore:
                     A = "OVERFLOW"
                     return A
                 A[1:-1] = A[2:]
